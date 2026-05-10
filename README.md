@@ -16,7 +16,7 @@ Aggregates statistics across all sessions, tracking total incidents and overall 
 ### Image Detection (Static Analysis)
 High-accuracy processing of uploaded images powered by the YOLOv8m Core Engine, providing instant visual feedback that separates "Safe" compliance from "Alert" violations.
 > <img width="1899" height="908" alt="webapp_safe" src="https://github.com/user-attachments/assets/59d84945-55ae-4f6a-8317-5578edace747" />
->
+
 > <img width="1900" height="905" alt="webapp_alert" src="https://github.com/user-attachments/assets/4ab0cbe3-2a60-4d33-ad57-69426f273404" />
 
 ### Session History
