@@ -7,31 +7,25 @@
 
 A real-time, web-based Deep Learning system designed to monitor safety compliance on construction sites. This project utilizes a custom-trained YOLOv8 architecture deployed across a dual-engine FastAPI backend to detect Personal Protective Equipment (PPE) in both static images and live video feeds.
 
-## 📸 Application Interface
-
-### Analytics Dashboard
-Aggregates statistics across all sessions, tracking total incidents and overall site safety metrics.
-> <img width="1894" height="905" alt="webapp_dashboard" src="https://github.com/user-attachments/assets/a7807fac-8a42-447d-a895-d3c21778dbff" />
-
-### Image Detection (Static Analysis)
-High-accuracy processing of uploaded images powered by the YOLOv8m Core Engine, providing instant visual feedback that separates "Safe" compliance from "Alert" violations.
-> <img width="1899" height="908" alt="webapp_safe" src="https://github.com/user-attachments/assets/59d84945-55ae-4f6a-8317-5578edace747" />
-
-> <img width="1900" height="905" alt="webapp_alert" src="https://github.com/user-attachments/assets/4ab0cbe3-2a60-4d33-ad57-69426f273404" />
-
-### Session History
-A searchable, filterable log of all detected individuals and compliance events.
-> <img width="1899" height="905" alt="webapp_history" src="https://github.com/user-attachments/assets/0764fd92-e189-44f2-b427-dfdff018e924" />
-
 ---
 
 ## 🌐 Interactive Web Application Features
 The system features a fully responsive React frontend designed for safety managers to monitor compliance in real-time:
 * **Live Detection Hub:** View webcam streams or upload static images, with instant visual feedback separating "Safe" compliance from "Alert" violations.
+> <img width="1899" height="908" alt="webapp_safe" src="https://github.com/user-attachments/assets/59d84945-55ae-4f6a-8317-5578edace747" />
+
+> <img width="1900" height="905" alt="webapp_alert" src="https://github.com/user-attachments/assets/4ab0cbe3-2a60-4d33-ad57-69426f273404" />
+
 * **Session History:** A searchable log of all detected individuals, filterable by Compliant vs. Violation statuses.
+> <img width="1899" height="905" alt="webapp_history" src="https://github.com/user-attachments/assets/0764fd92-e189-44f2-b427-dfdff018e924" />
+
 * **Analytics Dashboard:** Aggregate statistics and charts tracking total incidents and overall site safety metrics.
+> <img width="1894" height="905" alt="webapp_dashboard" src="https://github.com/user-attachments/assets/a7807fac-8a42-447d-a895-d3c21778dbff" />
 
 ## 🧠 System Architecture
+
+> <img width="1478" height="909" alt="system_info" src="https://github.com/user-attachments/assets/00215c13-9f04-4298-93a2-0e9baee98de4" />
+
 This system utilizes an **Asymmetric Deployment** routing engine to balance latency and accuracy:
 * **Core Engine (Static/Video):** Powered by `YOLOv8m`. Highly tuned on an 80/15/5 split using a custom nested-box Intersection over Smaller Area (IoSA) logic. Optimized for high-throughput batch processing of static uploads.
 * **Edge Engine (Live Stream):** Powered by `YOLOv8s`. A lightweight, latency-optimized model running via WebSockets with React temporal min-filtering for real-time webcam streams.
