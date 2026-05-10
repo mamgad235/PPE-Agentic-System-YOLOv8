@@ -1,0 +1,30 @@
+# ─── BACKEND (PYTHON) ───
+backend/venv/
+backend/__pycache__/
+backend/datasets/
+backend/external_test/
+backend/translate_labels.py
+.idea/
+
+# Ignore standalone model files in the backend root
+backend/*.pt
+
+# Ignore all run folders...
+backend/runs/*
+# ...but explicitly dive into detect and ignore everything EXCEPT your specific train and val folders
+!backend/runs/detect/
+backend/runs/detect/*
+
+# Keep your model checkpoints and training graphs
+!backend/runs/detect/train4/
+!backend/runs/detect/train6/
+
+# Keep your validation evaluations
+!backend/runs/detect/val/
+!backend/runs/detect/val2/
+!backend/runs/detect/val3/
+
+# ─── FRONTEND (NODE/REACT) ───
+frontend/node_modules/
+frontend/dist/
+frontend/.eslintcache
