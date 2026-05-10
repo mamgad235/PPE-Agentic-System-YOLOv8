@@ -11,16 +11,16 @@ A real-time, web-based Deep Learning system designed to monitor safety complianc
 
 ## 🌐 Interactive Web Application Features
 The system features a fully responsive React frontend designed for safety managers to monitor compliance in real-time:
-* **Live Detection Hub:** View webcam streams or upload static images, with instant visual feedback separating "Safe" compliance from "Alert" violations.
+* **Analytics Dashboard:** Aggregate statistics and charts tracking total incidents and overall site safety metrics.
+> <img width="1894" height="905" alt="webapp_dashboard" src="https://github.com/user-attachments/assets/a7807fac-8a42-447d-a895-d3c21778dbff" />
+
+* **Comprehensive Detection Hub:** View webcam streams or upload static images, with instant visual feedback separating "Safe" compliance from "Alert" violations.
 > <img width="1899" height="908" alt="webapp_safe" src="https://github.com/user-attachments/assets/59d84945-55ae-4f6a-8317-5578edace747" />
 
 > <img width="1900" height="905" alt="webapp_alert" src="https://github.com/user-attachments/assets/4ab0cbe3-2a60-4d33-ad57-69426f273404" />
 
 * **Session History:** A searchable log of all detected individuals, filterable by Compliant vs. Violation statuses.
 > <img width="1899" height="905" alt="webapp_history" src="https://github.com/user-attachments/assets/0764fd92-e189-44f2-b427-dfdff018e924" />
-
-* **Analytics Dashboard:** Aggregate statistics and charts tracking total incidents and overall site safety metrics.
-> <img width="1894" height="905" alt="webapp_dashboard" src="https://github.com/user-attachments/assets/a7807fac-8a42-447d-a895-d3c21778dbff" />
 
 ## 🧠 System Architecture
 
