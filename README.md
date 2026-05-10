@@ -16,7 +16,7 @@ The system features a fully responsive React frontend designed for safety manage
 
 * **Comprehensive Detection Hub:** View webcam streams or upload static images, with instant visual feedback separating "Safe" compliance from "Alert" violations.
 > <img width="1899" height="908" alt="webapp_safe" src="https://github.com/user-attachments/assets/59d84945-55ae-4f6a-8317-5578edace747" />
-
+> 
 > <img width="1900" height="905" alt="webapp_alert" src="https://github.com/user-attachments/assets/4ab0cbe3-2a60-4d33-ad57-69426f273404" />
 
 * **Session History:** A searchable log of all detected individuals, filterable by Compliant vs. Violation statuses.
