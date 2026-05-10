@@ -7,7 +7,25 @@
 
 A real-time, web-based Deep Learning system designed to monitor safety compliance on construction sites. This project utilizes a custom-trained YOLOv8 architecture deployed across a dual-engine FastAPI backend to detect Personal Protective Equipment (PPE) in both static images and live video feeds.
 
-## 🌐 Interactive Web Application
+## 📸 Application Interface
+
+### Analytics Dashboard
+Aggregates statistics across all sessions, tracking total incidents and overall site safety metrics.
+> <img width="1894" height="905" alt="webapp_dashboard" src="https://github.com/user-attachments/assets/a7807fac-8a42-447d-a895-d3c21778dbff" />
+
+### Image Detection (Static Analysis)
+High-accuracy processing of uploaded images powered by the YOLOv8m Core Engine, providing instant visual feedback that separates "Safe" compliance from "Alert" violations.
+> <img width="1899" height="908" alt="webapp_safe" src="https://github.com/user-attachments/assets/59d84945-55ae-4f6a-8317-5578edace747" />
+>
+> <img width="1900" height="905" alt="webapp_alert" src="https://github.com/user-attachments/assets/4ab0cbe3-2a60-4d33-ad57-69426f273404" />
+
+### Session History
+A searchable, filterable log of all detected individuals and compliance events.
+> <img width="1899" height="905" alt="webapp_history" src="https://github.com/user-attachments/assets/0764fd92-e189-44f2-b427-dfdff018e924" />
+
+---
+
+## 🌐 Interactive Web Application Features
 The system features a fully responsive React frontend designed for safety managers to monitor compliance in real-time:
 * **Live Detection Hub:** View webcam streams or upload static images, with instant visual feedback separating "Safe" compliance from "Alert" violations.
 * **Session History:** A searchable log of all detected individuals, filterable by Compliant vs. Violation statuses.
