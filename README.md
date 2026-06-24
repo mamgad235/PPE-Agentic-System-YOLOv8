@@ -16,25 +16,36 @@ A real-time, web-based Deep Learning system that monitors safety compliance on c
 ## 🌐 Interactive Web Application Features
 A fully responsive React frontend for safety managers to monitor compliance in real-time:
 * **Analytics Dashboard:** Aggregate statistics and per-class violation charts tracking total incidents and overall site safety.
-> <img width="1894" height="905" alt="webapp_dashboard" src="https://github.com/user-attachments/assets/a7807fac-8a42-447d-a895-d3c21778dbff" />
+
+![Analytics Dashboard](screenshots/webapp_dashboard.png)
 
 * **Comprehensive Detection Hub:** Webcam streams or static image/video uploads, with instant visual feedback separating "Safe" compliance from "Alert" violations.
-> <img width="1899" height="908" alt="webapp_safe" src="https://github.com/user-attachments/assets/59d84945-55ae-4f6a-8317-5578edace747" />
-> 
-> <img width="1900" height="905" alt="webapp_alert" src="https://github.com/user-attachments/assets/4ab0cbe3-2a60-4d33-ad57-69426f273404" />
+
+![Detection — Safe (compliant)](screenshots/webapp_safe.png)
+
+![Detection — Alert (violation)](screenshots/webapp_alert.png)
 
 * **Session History:** A searchable, filterable log of all detection sessions (Compliant vs. Violation), with CSV export.
-> <img width="1899" height="905" alt="webapp_history" src="https://github.com/user-attachments/assets/0764fd92-e189-44f2-b427-dfdff018e924" />
+
+![Session History](screenshots/webapp_history.png)
 
 * **🆕 Safety Agent (PPE Inspector):** A chat assistant that answers natural-language questions about violations, zones, and policy by running SQL-backed tools over the incident database — and shows its work (every tool call is logged).
 
+![Safety Agent — PPE Inspector chat with tool-call trace](screenshots/agentic/safety_agent.png)
+
 * **🆕 Live Escalation Overlay:** Real-time red incident banners and **audible spoken warnings** (browser Web Speech API) that persist across tabs, driven by the escalation engine.
+
+![Live escalation alert banner](screenshots/agentic/escalation_alert.png)
 
 * **🆕 Incidents Browser:** Browse, filter, and **download one-click PDF incident reports** (summary, timeline, and full audit trail).
 
+![Incidents browser panel](screenshots/agentic/incident_panel.png)
+
+![One-click PDF incident report](screenshots/agentic/incident_report_pdf.png)
+
 ## 🧠 System Architecture
 
-> <img width="1478" height="909" alt="system_info" src="https://github.com/user-attachments/assets/00215c13-9f04-4298-93a2-0e9baee98de4" />
+![System architecture / model info](screenshots/system_info.png)
 
 The system is built in two cooperating layers.
 
@@ -62,6 +73,10 @@ An additive layer (under `backend/agent/`) that turns detections into accountabl
 | **PDF Incident Reports** | One-click, **deterministically generated** (fpdf2) from the audited rows — summary, timeline, and action log. The LLM never writes the official report. |
 
 > **Hybrid by design:** deterministic rules decide *when* to escalate; the LLM only writes human-facing language (chat answers, email drafts). Predictable, expressive, and auditable.
+
+**Supervisor alert (webhook):** when a violation persists past the repeat threshold, a structured JSON alert is POSTed to the supervisor endpoint (shown here landing on a webhook inspector).
+
+![Supervisor webhook alert](screenshots/agentic/webhook_supervisor_mock.png)
 
 ### Target Classes
 Detects 10 classes across 3 roles:

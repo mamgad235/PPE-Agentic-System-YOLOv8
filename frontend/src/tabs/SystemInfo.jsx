@@ -18,7 +18,7 @@ export default function SystemInfo() {
             </div>
           </div>
           <p style={{ fontSize: 12, color: "#475569", lineHeight: 1.4, margin: 0, flex: 1, minWidth: "300px", borderLeft: "2px solid #F1F5F9", paddingLeft: "16px" }}>
-            Live webcam streams route to a generalized edge model with temporal smoothing, while static uploads process through a highly-tuned core model utilizing anatomical heuristics to combat Domain Shift.
+            Live webcam streams route to a generalized edge model with lightweight spatial filtering (person validation + IoSA de-duplication) and temporal smoothing, while static uploads process through a highly-tuned core model utilizing full anatomical heuristics to combat Domain Shift.
           </p>
         </div>
       </div>
@@ -57,7 +57,7 @@ export default function SystemInfo() {
               <SpecRow label="Parameter Count" value="~11.2 Million" />
               <SpecRow label="Test mAP50" value="86.1% (Blind) | 92.9% (Ext)" highlight />
               <SpecRow label="Inference Speed" value="Ultra-Low Latency" />
-              <SpecRow label="Spatial Logic" value="Raw Confidence Only" />
+              <SpecRow label="Spatial Logic" value="Person Filter + IoSA Dedup (Light)" />
               <SpecRow label="Tracking Logic" value="React Temporal Min-Filter" />
               <SpecRow label="Primary Target" value="Real-Time WebSockets" />
             </div>
