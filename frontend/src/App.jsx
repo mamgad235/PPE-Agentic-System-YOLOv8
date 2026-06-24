@@ -3,10 +3,15 @@ import "./App.css"
 import { NAV_ITEMS, PAGE_META, TABS, API } from "./config"
 import { exportHistoryCSV } from "./utils"
 import { Icon, StatCard, HistorySidebar } from "./components/SharedUI"
+import EscalationOverlay from "./components/EscalationOverlay"
 import ImageTab from "./tabs/ImageTab"
 import VideoTab from "./tabs/VideoTab"
 import WebcamTab from "./tabs/WebcamTab"
 import SystemInfo from "./tabs/SystemInfo"
+import AgentTab from "./tabs/AgentTab"
+// IncidentsTab is no longer rendered as a top-level nav route — the
+// incidents browser lives inside AgentTab as a collapsible section.
+// IncidentsBrowser is imported there directly from ./tabs/IncidentsTab.
 
 export default function App() {
   const [activeNav,    setActiveNav]    = useState("detection")
@@ -56,6 +61,10 @@ export default function App() {
 
   return (
     <div className="app">
+
+      {/* Phase 3 — global escalation overlay. Mounted at app root so red
+          banners + audible warnings persist across tab switches. */}
+      <EscalationOverlay />
 
       <aside className="sidebar">
         <div className="sidebar-logo">
@@ -299,6 +308,8 @@ export default function App() {
                 </div>
               )
             })()}
+
+            {activeNav === "agent" && <AgentTab />}
 
             {activeNav === "system" && <SystemInfo />}
 

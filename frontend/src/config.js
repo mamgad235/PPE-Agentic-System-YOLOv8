@@ -39,15 +39,22 @@ export const TABS = [
 ]
 
 export const NAV_ITEMS = [
-  { id: "dashboard", label: "Dashboard",   icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
-  { id: "detection", label: "Detection",   icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" },
-  { id: "history",   label: "History",     icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" },
-  { id: "system",    label: "System Info", icon: "M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" }
+  { id: "dashboard", label: "Dashboard",    icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
+  { id: "detection", label: "Detection",    icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" },
+  { id: "agent",     label: "Safety Agent", icon: "M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" },
+  { id: "history",   label: "History",      icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" },
+  { id: "system",    label: "System Info",  icon: "M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" }
 ]
+
+// The Incidents browser now lives as a collapsible section *inside* the
+// Safety Agent screen (see AgentTab.jsx), so there's no standalone nav
+// entry for it. IncidentsTab.jsx still exports a default component for
+// any deep-link compatibility, but no nav route surfaces it.
 
 export const PAGE_META = {
   dashboard: { title: "Dashboard",      sub: "Overview of all detection sessions" },
   detection: { title: "PPE Detection",  sub: "Upload images, videos or use live camera to detect PPE compliance" },
+  agent:     { title: "Safety Agent",   sub: "Review incidents and ask natural-language questions about violations, zones and policy" },
   history:   { title: "History",        sub: "All recorded detection sessions" },
   system:    { title: "System Architecture", sub: "Neural network specifications, datasets, and performance metrics" }
 }

@@ -1,0 +1,15 @@
+# Custom ByteTrack config for PPE Guard.
+# Most fields mirror ultralytics' built-in bytetrack.yaml. The deliberate
+# difference is `track_buffer: 90` — about 3-5 seconds at typical webcam
+# rates — so a worker who briefly leaves the frame keeps their track id
+# when they come back, instead of being assigned a new one. That stopped
+# the live escalation overlay from spamming a new incident every time the
+# tracker lost and re-acquired the same person.
+
+tracker_type:      bytetrack
+track_high_thresh: 0.25   # association threshold (first pass)
+track_low_thresh:  0.10   # association threshold (second pass)
+new_track_thresh:  0.25   # min confidence to spawn a new track
+track_buffer:      90     # frames a lost track is remembered (default 30)
+match_thresh:      0.80   # IoU threshold for matching
+fuse_score:        true

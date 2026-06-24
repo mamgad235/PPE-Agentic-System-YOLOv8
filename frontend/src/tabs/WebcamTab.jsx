@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useCallback } from "react"
 import { VIOLATION_CLASSES, isViolation } from "../config"
 import { drawBoxes, buildSummary } from "../utils"
 import { Icon, StatCard, DetectionList } from "../components/SharedUI"
+import { RecentIncidentsStrip } from "./IncidentsTab"
 
 const WS_URL = "ws://127.0.0.1:8000/ws/detect"
 
@@ -185,6 +186,10 @@ export default function WebcamTab({ onResult }) {
 
   return (
     <div>
+      {/* Phase-5 quick view: recent incident history pulled from /agent/incidents.
+          Polls every few seconds — independent of whether the camera is running. */}
+      <RecentIncidentsStrip />
+
       <div className="webcam-bar">
         {!active
           ? <button className="btn-primary" onClick={start}>

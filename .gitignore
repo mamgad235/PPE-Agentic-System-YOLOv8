@@ -28,3 +28,32 @@ backend/runs/detect/*
 frontend/node_modules/
 frontend/dist/
 frontend/.eslintcache
+
+# ─── AGENT LAYER (secrets + local data) ───
+backend/.env
+backend/agent/ppe_guard.db
+backend/agent/reports/
+
+# ─── PYTHON CACHES (any folder, incl. backend/agent/) ───
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# ─── SECRETS (any location) — keep .env.example tracked ───
+.env
+.env.local
+!.env.example
+
+# ─── EDITOR / OS JUNK ───
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── TEMP / GENERATED FILES ───
+*.tmp
+*.log
+*.bak
+*~
+.~lock.*#

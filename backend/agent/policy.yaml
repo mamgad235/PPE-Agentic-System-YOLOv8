@@ -1,0 +1,40 @@
+# PPE Guard agent policy. Edit this file to tune escalation and zone rules
+# without touching any Python code.
+
+# IANA timezone for server-initiated outputs (supervisor webhook bodies,
+# background log messages). The dashboard chat itself uses the browser's
+# detected timezone per-request, so this only affects messages that the
+# system sends *without* a user request attached to it.
+site_timezone: "Africa/Cairo"
+
+escalation:
+  notify_dashboard_after: 1            # first violation notifies the dashboard
+  audible_warning_after_seconds: 2     # audible TTS warning after this many seconds of continuous violation
+  escalate_supervisor_after_repeats: 2 # supervisor notified after this many repeats
+  repeat_window_minutes: 10            # rolling window for counting repeats
+  auto_close_seconds: 8                # incident auto-closes after this much silence
+  reopen_window_seconds: 10            # re-violation within this many seconds reopens the closed incident
+                                       # (set slightly larger than auto_close_seconds so a worker bouncing
+                                       #  in and out of frame keeps the same incident id)
+
+zones:
+  - id: zone_a
+    name: "High-risk welding area"
+    polygon: [[100, 100], [500, 100], [500, 400], [100, 400]]
+    required_ppe: ["Hardhat", "Safety Vest"]
+    severity_multiplier: 2.0
+
+  - id: default
+    name: "General site"
+    polygon: null            # null = the whole frame
+    required_ppe: ["Hardhat"]
+    severity_multiplier: 1.0
+
+supervisors:
+  - name: "Site Supervisor"
+    contact_webhook: "https://webhook.site/aca59386-9496-4137-bee1-fe21bca98997"   # generate a free URL at webhook.site
+
+llm:
+  provider: groq                       # groq | gemini | openai
+  model:    llama-3.3-70b-versatile
+  max_tool_turns: 5

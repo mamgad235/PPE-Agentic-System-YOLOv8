@@ -1,0 +1,51 @@
+# Custom BoT-SORT config for PPE Guard.
+#
+# Why BoT-SORT (not ByteTrack)?
+#   ByteTrack uses motion + box overlap only — no appearance. So when a
+#   worker walks out of the frame for a few seconds and walks back in, the
+#   tracker can't recognize them and assigns a fresh track_LIVE_N. That made
+#   "the same person re-entering" look like a new worker every time.
+#
+#   BoT-SORT adds appearance Re-ID on top of ByteTrack's motion model. With
+#   `with_reid: true`, ultralytics computes appearance embeddings for each
+#   detection and uses them (alongside motion + IoU) to recover the same
+#   track id after a gap.
+#
+#   `gmc_method: sparseOptFlow` compensates for camera shake / motion, which
+#   matters a bit for a handheld webcam demo.
+#
+# Why `yolov8n-cls.pt` for the Re-ID encoder?
+#   Ultralytics' BoT-SORT integration (see ultralytics/trackers/bot_sort.py,
+#   class ReID, line ~247) loads the `model` field as a YOLO checkpoint — it
+#   does NOT accept raw torchreid OSNet weights. The realistic options are:
+#     - `auto`            → reuse the YOLO detector's own features. Cheap,
+#                           but they're not trained for person identity.
+#     - `yolov8n-cls.pt`  → a separate YOLO classification model used as the
+#                           feature extractor. Auto-downloads (~5 MB) on first
+#                           use. Features still aren't person-trained, but
+#                           they're independent of the detector and slightly
+#                           more discriminative for whole-person crops.
+#     - real torchreid OSNet → requires a custom wrapper that monkey-patches
+#                           ultralytics' ReID class. Deferred.
+
+tracker_type:      botsort
+track_high_thresh: 0.25
+track_low_thresh:  0.10
+new_track_thresh:  0.25
+track_buffer:      300         # ~10 s at 30 fps
+match_thresh:      0.80
+fuse_score:        true
+
+# BoT-SORT specifics
+gmc_method:         sparseOptFlow
+
+# Re-ID. Thresholds are a middle ground:
+#   - too loose  → two different people get merged into one track
+#   - too tight  → can't re-acquire the same person after a short gap
+# Start here and dial in during the demo dry-run. If a second person walking
+# in inherits the first person's id, raise `appearance_thresh` toward 0.70.
+# If you walk out for 5–10 s and come back as a NEW id, lower it toward 0.45.
+proximity_thresh:   0.20       # require some IoU overlap to consider Re-ID match
+appearance_thresh:  0.55       # cosine similarity needed
+with_reid:          true
+model:              yolov8n-cls.pt   # YOLOv8 nano classifier, ~5 MB, auto-downloads
