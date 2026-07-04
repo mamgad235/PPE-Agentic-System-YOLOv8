@@ -29,15 +29,15 @@ A fully responsive React frontend for safety managers to monitor compliance in r
 
 ![Session History](screenshots/webapp_history.png)
 
-* **🆕 Safety Agent (PPE Inspector):** A chat assistant that answers natural-language questions about violations, zones, and policy by running SQL-backed tools over the incident database — and shows its work (every tool call is logged).
+* **Safety Agent (PPE Inspector):** A chat assistant that answers natural-language questions about violations, zones, and policy by running SQL-backed tools over the incident database — and shows its work (every tool call is logged).
 
 ![Safety Agent — PPE Inspector chat with tool-call trace](screenshots/agentic/safety_agent.png)
 
-* **🆕 Live Escalation Overlay:** Real-time red incident banners and **audible spoken warnings** (browser Web Speech API) that persist across tabs, driven by the escalation engine.
+* **Live Escalation Overlay:** Real-time red incident banners and **audible spoken warnings** (browser Web Speech API) that persist across tabs, driven by the escalation engine.
 
 ![Live escalation alert banner](screenshots/agentic/escalation_alert.png)
 
-* **🆕 Incidents Browser:** Browse, filter, and **download one-click PDF incident reports** (summary, timeline, and full audit trail).
+* **Incidents Browser:** Browse, filter, and **download one-click PDF incident reports** (summary, timeline, and full audit trail).
 
 ![Incidents browser panel](screenshots/agentic/incident_panel.png)
 
@@ -60,7 +60,7 @@ An **Asymmetric Deployment** routing engine balances latency and accuracy. Both 
 * **Mutual-exclusivity resolution:** `Hardhat` vs `NO-Hardhat` can't both win on one body region — the higher-confidence detection is kept.
 * Thresholds are centralised in `config.py` (`CONF 0.50 · TRUST 0.75 · NMS-IoU 0.45 · nested-IoSA 0.70`).
 
-### 🆕 Agency Layer — Autonomous Safety Supervisor
+### Agency Layer — Autonomous Safety Supervisor
 An additive layer (under `backend/agent/`) that turns detections into accountable action. It never modifies the detection, NMS, or spatial-filtering code.
 
 | Component | Role |
