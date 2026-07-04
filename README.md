@@ -1,11 +1,12 @@
 # 🏗️ PPE Guard — An Agentic System for Construction-Site Safety (YOLOv8)
 
-![Project Status](https://img.shields.io/badge/Status-Active-success)
+[![Status](https://shields.io)](https://github.com)
 ![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
 ![React](https://img.shields.io/badge/React-18-blue)
 ![YOLOv8](https://img.shields.io/badge/Model-YOLOv8-orange)
 ![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688)
 ![Agent](https://img.shields.io/badge/Agent-Policy%20%2B%20LLM-7C3AED)
+[![License: MIT](https://shields.io)](https://opensource.org)
 
 A real-time, web-based Deep Learning system that monitors safety compliance on construction sites — and **acts** on it. A custom-trained YOLOv8 detector (89.1% mAP) is deployed across a **dual-engine FastAPI backend** to detect Personal Protective Equipment (PPE) in images, video, and live webcam feeds. On top of detection sits an **autonomous safety-supervisor agent**: a policy-driven escalation engine, a fully-audited action trail, an LLM analytics assistant, and one-click PDF incident reports.
 
